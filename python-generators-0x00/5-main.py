@@ -10,6 +10,13 @@ def setup_database():
             email TEXT NOT NULL
         )
     ''')
+
+    cursor.execute('SELECT COUNT(*) FROM users')
+    if cursor.fetchone()[0] == 0:
+        cursor.executemany(
+            'INSERT INTO users (name, email) VALUES (?, ?)',
+            [('Alice', 'alice@example.com'), ('Bob', 'bob@example.com')]
+        )
     conn.commit()
     conn.close()
 
