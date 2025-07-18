@@ -5,7 +5,7 @@ from utils import access_nested_map
 from utils import get_json
 from unittest.mock import patch, Mock
 
-class TestAccessNestedMap(unittest.TestCase) :
+class TestGetJson(unittest.TestCase) :
     """unit test for access_nested_map"""
 
     # @parameterized.expand([
