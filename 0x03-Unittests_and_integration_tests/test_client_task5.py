@@ -5,7 +5,6 @@ from unittest.mock import patch, PropertyMock
 from parameterized import parameterized
 from client import GithubOrgClient
 
-
 class TestGithubOrgClient(unittest.TestCase):
     """Test case for GithubOrgClient"""
 
@@ -37,7 +36,6 @@ class TestGithubOrgClient(unittest.TestCase):
 
             self.assertEqual(result, 'https://api.github.com/orgs/google/repos')
             mock_org.assert_called_once()
-
 
 if __name__ == "__main__":
     unittest.main()
