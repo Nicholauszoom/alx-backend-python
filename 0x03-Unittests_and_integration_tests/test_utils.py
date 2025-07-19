@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import unittest
 from unittest.mock import patch
 from utils import memoize  # Make sure this exists in utils.py
