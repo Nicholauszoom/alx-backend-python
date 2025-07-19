@@ -13,15 +13,17 @@ def get_json(url):
     response=requests.get(url)
     return response.json()
 
-def memoize(func):
-    attr_name = "_memoize_" + func.__name__
+def memoize(method):
+    """Memoization decorator"""
+    attr_name = "_memoize_" + method.__name__
 
     def wrapper(self):
         if not hasattr(self, attr_name):
-            setattr(self, attr_name, func(self))
+            setattr(self, attr_name, method(self))
         return getattr(self, attr_name)
 
     return wrapper
+
 
 
 
