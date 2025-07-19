@@ -1,7 +1,7 @@
-#!/usr/bin/env python3
 import unittest
 from unittest.mock import patch
-from utils import memoize
+from utils import memoize  # Make sure this exists in utils.py
+
 
 class TestMemoize(unittest.TestCase):
     def test_memoize(self):
@@ -15,9 +15,13 @@ class TestMemoize(unittest.TestCase):
 
         with patch.object(TestClass, 'a_method', return_value=42) as mock_method:
             obj = TestClass()
-            self.assertEqual(obj.a_property(), 42)
-            self.assertEqual(obj.a_property(), 42)
+            result1 = obj.a_property()
+            result2 = obj.a_property()
+
+            self.assertEqual(result1, 42)
+            self.assertEqual(result2, 42)
             mock_method.assert_called_once()
+
 
 if __name__ == '__main__':
     unittest.main()
